@@ -11,8 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 
-import static com.libgdx.java.pocket.check;
-
+import static com.libgdx.java.pocket.*;
 import static com.libgdx.java.utils.Constants.*;
 
 public class main extends ApplicationAdapter {
@@ -170,7 +169,7 @@ public class main extends ApplicationAdapter {
 
 		}
 		batch.draw(striker, player.getPosition().x*PPM-(striker.getWidth()/2), player.getPosition().y*PPM-(striker.getWidth()/2), striker.getWidth(), striker.getHeight());
-
+		//boolean b=ball1.overlape(ball2);
 
 		batch.draw(ballbox,530,0);
 		batch.end();
@@ -208,6 +207,8 @@ public class main extends ApplicationAdapter {
 		textureball13.dispose();
 		textureball14.dispose();
 		textureball15.dispose();
+		wavSound1.dispose();
+		wavSound2.dispose();
 
 	}
 
