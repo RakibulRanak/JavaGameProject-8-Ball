@@ -16,11 +16,9 @@ public class balls {
          def.position.set(x/PPM,y/PPM);
          def.linearDamping = 0.5f;
          def.fixedRotation=false;
-         def.fixedRotation=false;
          pBody=world.createBody(def);
          CircleShape shape=new CircleShape();
          shape.setRadius(rad/PPM);
-
          //Fixture
          FixtureDef fix=new FixtureDef();
          fix.shape=shape;

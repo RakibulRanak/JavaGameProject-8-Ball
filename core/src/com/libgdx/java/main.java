@@ -3,6 +3,8 @@ package com.libgdx.java;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,11 +13,16 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 
+
 import static com.libgdx.java.pocket.*;
 import static com.libgdx.java.utils.Constants.*;
 
-public class main extends ApplicationAdapter {
+public class main extends ApplicationAdapter implements InputProcessor {
 
+	boolean force=false,hit=false;
+	int Force=0;
+	double angle;
+	float posx,posy,disA,disB=20,power,mousex,mousey;
 	private OrthographicCamera camera;
 	boolean b0=true,b1=true,b2=true,b3=true,b4=true,b5=true,b6=true,b7=true,b8=true,b9=true,b10=true,b11=true,
 	b12=true,b13=true,b14=true,b15=true;
@@ -27,15 +34,21 @@ public class main extends ApplicationAdapter {
 	private SpriteBatch batch;
 	private Texture background, board, striker, textureball1, textureball2, textureball3, textureball4, textureball5, textureball6,
 			textureball7, table, textureball8, textureball9, textureball10, textureball11, textureball12,
-			textureball13, textureball14, textureball15,ballbox;
+			textureball13, textureball14, textureball15,ballbox,cue;
 
-	private Sprite sprite1, sprite2;
+	private Sprite sprite1, sprite2,stick;
+
+
+
+
+
 
 	@Override
 	public void create() {
 
 
 		System.out.println(Gdx.graphics.getWidth() + " " + Gdx.graphics.getHeight());
+		Gdx.input.setInputProcessor(this);
 		world = new World(new Vector2(0,0), false);
 		b2dr = new Box2DDebugRenderer();
 		camera = new OrthographicCamera();
@@ -85,6 +98,7 @@ public class main extends ApplicationAdapter {
 		textureball14 = new Texture("ball14.png");
 		textureball15 = new Texture("ball15.png");
 		ballbox=new Texture("Ballbox.png");
+		cue=new Texture("cuePurple.png");
 
 		batch = new SpriteBatch();
 		background = new Texture("parquet.jpg");
@@ -96,7 +110,9 @@ public class main extends ApplicationAdapter {
 		sprite2 = new Sprite(background);
 		sprite2.setSize(1540, 845);
 		sprite2.setPosition(0, 0);
-
+		stick=new Sprite(cue);
+		stick.setPosition(200,100);
+		stick.setRotation(0);
 
 	}
 
@@ -169,20 +185,17 @@ public class main extends ApplicationAdapter {
 
 		}
 		batch.draw(striker, player.getPosition().x*PPM-(striker.getWidth()/2), player.getPosition().y*PPM-(striker.getWidth()/2), striker.getWidth(), striker.getHeight());
-		//boolean b=ball1.overlape(ball2);
-
 		batch.draw(ballbox,530,0);
+		stick.draw(batch);
 		batch.end();
+
 		//b2dr.render(world, camera.combined);
 		world.step(1 / 60f, 6, 2);
 		camera.update();
-
-
 	}
 
 	@Override
 	public void resize(int width, int height) {
-
 	}
 
 	@Override
@@ -209,14 +222,12 @@ public class main extends ApplicationAdapter {
 		textureball15.dispose();
 		wavSound1.dispose();
 		wavSound2.dispose();
-
+		//hitweak.dispose();
 	}
 
 	public void inputUpdate(float delta) {
 		int horizontalForce = 0;
 		if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-			System.out.print("X=" + Gdx.input.getX());
-			System.out.println(" Y=" + (HEIGHT - 1 - Gdx.input.getY()));
 		}
 		if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
 			player.applyForceToCenter(0, -50, false);
@@ -226,9 +237,25 @@ public class main extends ApplicationAdapter {
 			player.applyForceToCenter(50, 0, false);
 		if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
 			player.applyForceToCenter(0, 50, false);
-		//player.setLinearVelocity(horizontalForce * 5, player.getLinearVelocity().y);
+		if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)&&hit) {
+			power=5;
+			Force+=3;
+			int x1,y1;
+			x1= (int) (player.getPosition().x*PPM);
+			y1=(int)(player.getPosition().y*PPM);
+			disA= (float) Math.sqrt((y1-mousey)*(y1-mousey)+(x1-mousex)*(x1-mousex))+20;
+			System.out.println(disA+"hiii");
+			disB+=power;
+			disA+=disB;
+			posx=(disA*x1-disB*mousex)/(disA-disB);
+			posy=(disA*y1-disB*mousey)/(disA-disB);
+			System.out.println(disA+"  h "+disB);
+			System.out.println(mousex+" "+mousey);;
+			System.out.println(posx+" "+posy);
+			stick.setPosition((int)posx,(int)posy);
+		}
+}
 
-	}
 
 	public Body createBox(int x, int y, int width, int height, boolean isStatic) {
 		Body pBody;
@@ -246,5 +273,107 @@ public class main extends ApplicationAdapter {
 		pBody.createFixture(shape, 10f);
 		shape.dispose();
 		return pBody;
+	}
+
+	@Override
+	public boolean keyDown(int keycode) {
+		return false;
+	}
+
+	@Override
+	public boolean keyUp(int keycode) {
+		return false;
+	}
+
+	@Override
+	public boolean keyTyped(char character) {
+		return false;
+	}
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		if (button == Input.Buttons.RIGHT) {
+			stick.setPosition(-500,-500);
+		}
+		if(button==Input.Buttons.LEFT)
+		{
+			if(!hit) {
+			System.out.print("X=" + Gdx.input.getX());
+			System.out.println(" Y=" + (HEIGHT - 1 - Gdx.input.getY()));
+			stick.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+			System.out.println(player.getPosition().x * PPM + " hey1 " + player.getPosition().y * PPM);
+			power = 0;
+			disB = 20;
+			hit = true;
+		}
+			else if(hit && Force>0) {
+				Sound hitmedium = Gdx.audio.newSound(Gdx.files.internal("sounds/ball_hit_medium.wav"));
+				Sound hithard=Gdx.audio.newSound(Gdx.files.internal("sounds/ball_hit_hard.wav"));
+				Sound hitweak=Gdx.audio.newSound(Gdx.files.internal("sounds/ballhitweak.wav"));
+				float dX=mousex-player.getPosition().x*PPM;
+				float dY=mousey-player.getPosition().y*PPM;
+				float forceX=(Math.abs(dX)+Math.abs(dY))/(Math.abs(dY));
+				float forceY=(Math.abs(dX)+Math.abs(dY))/(Math.abs(dX));
+				System.out.println(forceX + " p "+forceY);
+				float total=Math.abs(forceX)+Math.abs(forceY);
+				forceX=forceX/total;
+				forceY=forceY/total;
+				System.out.println(dX +" "+dY);
+				System.out.println(forceX + "(--)"+forceY);
+				if(dX<0)
+					forceX*=-1;
+				if(dY<0)
+					forceY*=-1;
+				player.applyForceToCenter(forceX*Force, forceY*Force, false);
+				if(Force<50)
+					hitweak.play();
+				if(Force<100)
+					hitmedium.play();
+				else
+					hithard.play();
+
+				stick.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+				hit=false;
+				Force=0;
+
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		return false;
+	}
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		return false;
+	}
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		mousex=screenX;
+		mousey=HEIGHT-1-screenY;
+		int x2,y2;
+		x2= (int) (player.getPosition().x*PPM);
+		y2=(int)(player.getPosition().y*PPM);
+		System.out.println(x2+ "hey2 "+y2);
+		angle=Math.atan((y2-mousey)/(x2-mousex));
+		angle=Math.toDegrees(angle);
+
+		System.out.println(angle);
+		if(mousex<x2)
+			stick.setRotation((float)angle);
+		else if(mousex>x2)
+			stick.setRotation(180-(float)-angle);
+
+		stick.setOrigin(0,0);
+		return false;
+	}
+
+	@Override
+	public boolean scrolled(int amount) {
+		return false;
 	}
 }
