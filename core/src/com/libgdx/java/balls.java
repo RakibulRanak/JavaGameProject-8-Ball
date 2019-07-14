@@ -5,7 +5,7 @@ import static com.libgdx.java.utils.Constants.PPM;
 
 public class balls {
 
-     Body createBall(int x,int y,int rad,boolean isStatic,World world)
+     Body createBall(int x,int y,int rad,boolean isStatic,World world,int num)
      {
          Body pBody;
          BodyDef def=new BodyDef();
@@ -26,6 +26,15 @@ public class balls {
          fix.friction=25f;
          fix.restitution=.55f;
          pBody.createFixture(fix);
+         if(num==0)
+             pBody.setUserData("Striker");
+         else if(num<8)
+             pBody.setUserData("BallSolid");
+         else if(num==8)
+             pBody.setUserData("Ball8");
+         else
+             pBody.setUserData("BallStripe");
+
          shape.dispose();
          return pBody;
     }
