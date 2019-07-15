@@ -3,18 +3,27 @@ package com.libgdx.java.utils;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+
+
 
 public final class Constants {
     public static final float PPM=100f;
     public static final int WIDTH=1540;
     public static final int HEIGHT=845;
     public static boolean player1=true,player2=false;
-    public static int solid=0;
+    public static int solid=0, checkWin;
     public static int stripe=0;
     public static int eight=0;
     public static int cue=0;
@@ -25,7 +34,7 @@ public final class Constants {
             textureball7, table, textureball8, textureball9, textureball10, textureball11, textureball12,insidetray,
             textureball13, textureball14, textureball15,ballbox,cue1,cue2;
 
-    public static Sprite sprite1, sprite2,stick1,stick2,ballboximg;
+    public static Sprite sprite1, sprite2,stick1,stick2,ballboximg, spritePlayer1, spritePlayer2, spritePlayer1Arrow, spritePlayer2Arrow;
     public static World world;
 
     public static Box2DDebugRenderer b2dr;
@@ -38,6 +47,11 @@ public final class Constants {
     public static double angle;
     public static float posx,posy,disA,disB=20,power,mousex,mousey,time=0;
     public static Sound ballinpocket,ballroll,cuepocket;
+
+
+
+
+
 
 
 

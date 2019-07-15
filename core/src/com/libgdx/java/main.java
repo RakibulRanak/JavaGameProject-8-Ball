@@ -53,6 +53,17 @@ public class main extends ApplicationAdapter implements Screen{
 		sprite1.draw(batch);
 		ballboximg.draw(batch);
 
+		spritePlayer1.draw(batch);
+		spritePlayer2.draw(batch);
+
+		if(player1) {
+			spritePlayer1Arrow.draw(batch);
+		}
+		else {
+
+			spritePlayer2Arrow.draw(batch);
+		}
+
 		if(b1)
 			b1=check(ball1);
 		batch.draw(textureball1, ball1.getPosition().x*PPM-(textureball1.getWidth()/2), ball1.getPosition().y*PPM-(textureball1.getWidth()/2), textureball1.getWidth(), textureball1.getHeight());
@@ -120,7 +131,7 @@ public class main extends ApplicationAdapter implements Screen{
 			balllstop=stop();
 			//System.out.println(balllstop);
 		}
-		if(player1 && player1hit && balllstop && solid==0)
+		if(player1 && player1hit && balllstop && solid==0 )
 		{
 			player1=false;
 			player2=true;
@@ -140,6 +151,11 @@ public class main extends ApplicationAdapter implements Screen{
 			point1+=solid;
 			SOLID-=solid;
 			STRIPE-=STRIPE;
+			if(cue==1)
+			{
+				player1=false;
+				player2=true;
+			}
 		}
 		if(player2 &&player2hit&& balllstop && stripe==0)
 		{
@@ -162,6 +178,11 @@ public class main extends ApplicationAdapter implements Screen{
 			point2+=stripe;
 			SOLID-=solid;
 			STRIPE-=stripe;
+			if(cue==1)
+			{
+				player1=false;
+				player2=true;
+			}
 		}
 		if(balllstop||time<0.2) {
 

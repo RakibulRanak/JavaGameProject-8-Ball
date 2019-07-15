@@ -1,7 +1,11 @@
 package com.libgdx.java;
+
+import Screen.Menu;
+import Screen.Win;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.physics.box2d.*;
+
 import static com.libgdx.java.utils.Constants.*;
 
 public class pocket {
@@ -24,19 +28,32 @@ public class pocket {
                 } else if (ball.getUserData() == "Ball8") {
 
                     if (player1) {
-                        if (SOLID > 0)
+                        if (SOLID > 0) {
                             System.out.println("Player2 Wins");
-                        else
+                            checkWin=2;
+                        }
+                        else {
                             System.out.println("Player1 Wins");
+                            checkWin=1;
+
+                        }
                     }
-                    if (player2) {
-                        if (STRIPE > 0)
+                    else  {
+                        if (STRIPE > 0) {
                             System.out.println("Player1 Wins");
-                        else
+                            checkWin=1;
+
+                        }
+                        else {
                             System.out.println("Player2 Wins");
+                            checkWin=2;
+
+                        }
                     }
                     //Game Ends Here
+                    ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                 }
+
 
                 ballinpocket.play();
                 ballroll.play();
