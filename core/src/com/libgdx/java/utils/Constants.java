@@ -1,3 +1,4 @@
+
 package com.libgdx.java.utils;
 
 
@@ -42,3 +43,4 @@ public final class Constants {
 
 
 }
+
