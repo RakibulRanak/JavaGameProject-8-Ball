@@ -1,11 +1,11 @@
 package com.libgdx.java;
 import com.badlogic.gdx.physics.box2d.*;
-import static com.libgdx.java.utils.Constants.PPM;
+import static com.libgdx.java.utils.Constants.*;
 
 
 public class balls {
 
-     Body createBall(int x,int y,int rad,boolean isStatic,World world,int num)
+    public static Body createBall(int x,int y,int rad,boolean isStatic,int num)
      {
          Body pBody;
          BodyDef def=new BodyDef();
