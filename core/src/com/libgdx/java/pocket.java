@@ -6,9 +6,7 @@ import static com.libgdx.java.utils.Constants.*;
 
 public class pocket {
 
-    public static Sound wavSound1=Gdx.audio.newSound(Gdx.files.internal("sounds/sfx_ball_in_pocket.wav"));
-    public static Sound wavSound2=Gdx.audio.newSound(Gdx.files.internal("sounds/ball_roll.wav"));
-    public static Sound wavSound3=Gdx.audio.newSound(Gdx.files.internal("sounds/cuepocket.wav"));
+
     public static boolean check (Body ball)
     {
         float x=ball.getPosition().x*PPM;
@@ -24,7 +22,7 @@ public class pocket {
                 } else if (ball.getUserData() == "BallStripe") {
                     stripe++;
                 } else if (ball.getUserData() == "Ball8") {
-                    //Game Ends Here
+
                     if (player1) {
                         if (SOLID > 0)
                             System.out.println("Player2 Wins");
@@ -37,17 +35,18 @@ public class pocket {
                         else
                             System.out.println("Player2 Wins");
                     }
+                    //Game Ends Here
                 }
 
-                wavSound1.play();
-                wavSound2.play();
+                ballinpocket.play();
+                ballroll.play();
                 ball.setLinearVelocity(0, 0);
                 ball.setTransform(970 / PPM, 15 / PPM, 0);
                 ball.applyForceToCenter(-15, 0, false);
             }
             else
             {
-                wavSound3.play();
+                cuepocket.play();
             }
 
             return false;
