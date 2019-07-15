@@ -12,7 +12,7 @@ import static com.libgdx.java.movement.stop;
 import static com.libgdx.java.pocket.*;
 import static com.libgdx.java.utils.Constants.*;
 
-public class main extends ApplicationAdapter{
+public class main extends ApplicationAdapter implements Screen{
 
 	private OrthographicCamera camera;
 	boolean b0=true,b1=true,b2=true,b3=true,b4=true,b5=true,b6=true,b7=true,b8=true,b9=true,b10=true,b11=true,
@@ -21,6 +21,12 @@ public class main extends ApplicationAdapter{
 
 	@Override
 	public void create() {
+
+	}
+
+
+	@Override
+	public void show() {
 
 		Gdx.input.setInputProcessor(new InputProcessing());
 		world = new World(new Vector2(0,0), false);
@@ -32,9 +38,11 @@ public class main extends ApplicationAdapter{
 		batch = new SpriteBatch();
 
 	}
-
 	@Override
-	public void render() {
+	public void render(float delta){
+		Gdx.gl.glClearColor(0,0,0,1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		inputUpdate(Gdx.graphics.getDeltaTime());
 		//new InputProcessing();
 		time+=Gdx.graphics.getDeltaTime();
@@ -133,7 +141,7 @@ public class main extends ApplicationAdapter{
 			SOLID-=solid;
 			STRIPE-=STRIPE;
 		}
-		 if(player2 &&player2hit&& balllstop && stripe==0)
+		if(player2 &&player2hit&& balllstop && stripe==0)
 		{
 			player2=false;
 			player1=true;
@@ -145,22 +153,22 @@ public class main extends ApplicationAdapter{
 			SOLID-=solid;
 
 		}
-		 else if(player2 &&player2hit&& balllstop && stripe!=0)
-		 {
-			 //System.out.println("player2stripe");
-			 //System.out.println(stripe+" points");
-			 //System.out.println("player2again");
-			 player2hit=false;
-			 point2+=stripe;
-			 SOLID-=solid;
-			 STRIPE-=stripe;
-		 }
+		else if(player2 &&player2hit&& balllstop && stripe!=0)
+		{
+			//System.out.println("player2stripe");
+			//System.out.println(stripe+" points");
+			//System.out.println("player2again");
+			player2hit=false;
+			point2+=stripe;
+			SOLID-=solid;
+			STRIPE-=stripe;
+		}
 		if(balllstop||time<0.2) {
 
 			if(player1)
-			  stick1.draw(batch);
+				stick1.draw(batch);
 			else
-			  stick2.draw(batch);
+				stick2.draw(batch);
 		}
 		batch.draw(ballbox,530,0);
 
@@ -176,8 +184,15 @@ public class main extends ApplicationAdapter{
 		}
 	}
 
+
+
 	@Override
 	public void resize(int width, int height) {
+	}
+
+	@Override
+	public void hide() {
+
 	}
 
 	@Override

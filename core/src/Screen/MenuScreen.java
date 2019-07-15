@@ -16,6 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.libgdx.java.PlayGame;
 import com.libgdx.java.main;
 
 public class MenuScreen  implements Screen {
@@ -101,6 +102,11 @@ public class MenuScreen  implements Screen {
 
 
         // tables are added to stage
+
+        //tableAbout.debug();
+        //tableExit.debug();
+       // tableHelp.debug();tablePlay/
+
         stage.addActor(tablePlay);
         stage.addActor(tableHelp);
         stage.addActor(tableheading);
@@ -121,7 +127,7 @@ public class MenuScreen  implements Screen {
         stage.draw();
 
         if(buttonPlay.isPressed()){
-            //Gdx.app.getApplicationListener().setScreen(new main());
+            ((Menu) Gdx.app.getApplicationListener()).setScreen( new main());
         }
 
         if(buttonHelp.isPressed()){

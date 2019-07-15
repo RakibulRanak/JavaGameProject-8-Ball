@@ -3,8 +3,6 @@ package com.libgdx.java.desktop;
 import Screen.Menu;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.libgdx.java.main;
-
 import static com.libgdx.java.utils.Constants.*;
 
 public class DesktopLauncher {
@@ -14,7 +12,7 @@ public class DesktopLauncher {
 		config.height=HEIGHT;
 		config.backgroundFPS=60;
 		config.foregroundFPS=60;
-		new LwjglApplication(new main(), config);
+		new LwjglApplication(new Menu(), config);
 
 	}
 }
