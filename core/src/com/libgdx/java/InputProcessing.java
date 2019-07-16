@@ -25,17 +25,29 @@ public class InputProcessing implements InputProcessor {
 
         @Override
         public boolean touchDown ( int screenX, int screenY, int pointer, int button){
+            if(button==Input.Buttons.LEFT && cuegorte==1)
+            {
+                //cue=0;
+                cuegorte=0;
+                stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+                stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 
-            if (button == Input.Buttons.LEFT) {
+
+            }
+
+           if (button == Input.Buttons.LEFT && cuegorte==0) {
                 if (Force > 0) {
-                    //System.out.println(point1 +" "+point2);
                     if (Force > 180)
                         Force = 180;
                     Sound hitmedium = Gdx.audio.newSound(Gdx.files.internal("sounds/ball_hit_medium.wav"));
                     Sound hithard = Gdx.audio.newSound(Gdx.files.internal("sounds/ball_hit_hard.wav"));
                     Sound hitweak = Gdx.audio.newSound(Gdx.files.internal("sounds/ballhitweak.wav"));
                     float dX = mousex - player.getPosition().x * PPM;
+                    if(dX==0)
+                        dX=0.1f;
                     float dY = mousey - player.getPosition().y * PPM;
+                    if(dY==0)
+                        dY=0.1f;
                     float forceX = (Math.abs(dX) + Math.abs(dY)) / (Math.abs(dY));
                     float forceY = (Math.abs(dX) + Math.abs(dY)) / (Math.abs(dX));
                     float total = Math.abs(forceX) + Math.abs(forceY);
@@ -96,6 +108,10 @@ public class InputProcessing implements InputProcessor {
 
             mousex = screenX;
             mousey = HEIGHT - 1 - screenY;
+            if(cuegorte==1)
+            {
+                player.setTransform(mousex/PPM,mousey/PPM,0);
+            }
             int x2, y2;
             x2 = (int) (player.getPosition().x * PPM);
             y2 = (int) (player.getPosition().y * PPM);
@@ -113,6 +129,7 @@ public class InputProcessing implements InputProcessor {
 
             stick1.setOrigin(0, 0);
             stick2.setOrigin(0, 0);
+
             return false;
         }
 
