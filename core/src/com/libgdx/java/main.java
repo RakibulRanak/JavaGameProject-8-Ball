@@ -152,7 +152,7 @@ public class  main extends ApplicationAdapter implements Screen{
 			player1hit=false;
 			point1+=solid;
 			SOLID-=solid;
-			STRIPE-=STRIPE;
+			STRIPE-=stripe;
 			if(cue==1)
 			{
 				player1=false;
@@ -199,6 +199,7 @@ public class  main extends ApplicationAdapter implements Screen{
 		//b2dr.render(world, camera.combined);
 		world.step(1 / 60f, 6, 2);
 		camera.update();
+		System.out.println(SOLID + " " + STRIPE);
 		if(balllstop) {
 			solid = 0;
 			stripe = 0;
