@@ -131,6 +131,11 @@ public class  main extends ApplicationAdapter implements Screen{
 		if((player1hit||player2hit) &&time>2)
 		{
 			balllstop=stop();
+			if(balllstop)
+			{
+				stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+				stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+			}
 			//System.out.println(balllstop);
 		}
 		if(player1 && player1hit && balllstop && solid==0 )
@@ -138,17 +143,10 @@ public class  main extends ApplicationAdapter implements Screen{
 			player1=false;
 			player2=true;
 			player1hit=false;
-			//System.out.println("player1Solid");
-			//System.out.println(solid+stripe+cue+eight);
-			//System.out.println("Solid porenai");
-			//System.out.println("player2marbe");
 			STRIPE-=stripe;
 		}
 		else if((player1 && player1hit && balllstop && solid!=0))
 		{
-			//System.out.println("player1solid");
-			//System.out.println(solid+" points");
-			//System.out.println("player1again");
 			player1hit=false;
 			point1+=solid;
 			SOLID-=solid;
@@ -164,18 +162,11 @@ public class  main extends ApplicationAdapter implements Screen{
 			player2=false;
 			player1=true;
 			player2hit=false;
-			//System.out.println("player2Stripe");
-			//System.out.println(solid+stripe+cue+eight);
-			//System.out.println(stripe);
-			//System.out.println("player1marbe");
 			SOLID-=solid;
 
 		}
 		else if(player2 &&player2hit&& balllstop && stripe!=0)
 		{
-			//System.out.println("player2stripe");
-			//System.out.println(stripe+" points");
-			//System.out.println("player2again");
 			player2hit=false;
 			point2+=stripe;
 			SOLID-=solid;

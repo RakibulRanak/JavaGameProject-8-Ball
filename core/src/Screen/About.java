@@ -31,8 +31,8 @@ public class About implements Screen {
     }
     @Override
     public void show() {
-        aboutus = new Sprite(new Texture("images/About_us.png"));
-        aboutus.setSize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        aboutus = new Sprite(new Texture("images/AboutUs.png"));
+        aboutus.setSize(Gdx.graphics.getWidth()+10,Gdx.graphics.getHeight());
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);

@@ -36,7 +36,7 @@ public final class Constants {
 
 
 
-    public static boolean force=false,hit=false,player1hit=false,player2hit=false,balllstop=true;
+    public static boolean player1hit=false,player2hit=false,balllstop=true;
     public static int Force=0;
     public static double angle;
     public static float posx,posy,disA,disB=20,power,mousex,mousey,time=0;

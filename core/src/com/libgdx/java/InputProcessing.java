@@ -26,25 +26,10 @@ public class InputProcessing implements InputProcessor {
         @Override
         public boolean touchDown ( int screenX, int screenY, int pointer, int button){
 
-            if (button == Input.Buttons.RIGHT) {
-                stick1.setPosition(-500, -500);
-                stick2.setPosition(-500, -500);
-            }
             if (button == Input.Buttons.LEFT) {
-                if (!hit) {
-                    if (player1) {
-                        stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
-                        //stick2.setPosition(-500,-500);
-                        stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
-                    } else {
-                        //stick1.setPosition(-500,-500);
-                        stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
-                        stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
-                    }
-                    power = 0;
-                    disB = 20;
-                    hit = true;
-                } else if (hit && Force > 0) {
+
+                   // hit = true;
+                if (Force > 0) {
                     //System.out.println(point1 +" "+point2);
                     if (Force > 180)
                         Force = 180;
@@ -89,9 +74,11 @@ public class InputProcessing implements InputProcessor {
                         time = 0;
 
                     }
-                    hit = false;
-                    Force = 0;
+
                 }
+                Force = 0;
+                power = 0;
+                disB = 20;
             }
             return false;
         }

@@ -70,6 +70,7 @@ import static com.libgdx.java.utils.Constants.*;
          stick2=new Sprite(cue2);
          stick2.setPosition(200,100);
          stick2.setRotation(0);
+
          ballboximg=new Sprite(insidetray);
          ballboximg.setPosition(545,0);
          ballboximg.setSize(450,40);
@@ -110,6 +111,9 @@ import static com.libgdx.java.utils.Constants.*;
          ballinpocket=Gdx.audio.newSound(Gdx.files.internal("sounds/sfx_ball_in_pocket.wav"));
          ballroll=Gdx.audio.newSound(Gdx.files.internal("sounds/ball_roll.wav"));
          cuepocket=Gdx.audio.newSound(Gdx.files.internal("sounds/cuepocket.wav"));
+
+         stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
+         stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 
 
      }
