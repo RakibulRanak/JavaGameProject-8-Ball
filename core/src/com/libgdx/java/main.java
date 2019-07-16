@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.libgdx.java.utils.Dispose;
+
+import Screen.*;
 import static com.libgdx.java.InputUpdate.inputUpdate;
 import static com.libgdx.java.movement.stop;
 import static com.libgdx.java.pocket.*;
@@ -202,6 +204,12 @@ public class main extends ApplicationAdapter implements Screen{
 			stripe = 0;
 			cue = 0;
 			eight = 0;
+		}
+
+
+		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
+		{
+			((Menu) Gdx.app.getApplicationListener()).setScreen(new MenuScreen());
 		}
 	}
 

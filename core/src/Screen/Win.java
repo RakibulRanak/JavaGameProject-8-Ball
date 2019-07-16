@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import static Screen.MenuScreen.*;
-import com.libgdx.java.utils.Constants.*;
+import static com.libgdx.java.utils.Constants.*;
 
 
 public class Win implements Screen {
