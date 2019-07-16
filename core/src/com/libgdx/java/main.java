@@ -182,8 +182,8 @@ public class  main extends ApplicationAdapter implements Screen{
 			STRIPE-=stripe;
 			if(cue==1)
 			{
-				player1=false;
-				player2=true;
+				player2=false;
+				player1=true;
 			}
 		}
 		if(balllstop||time<0.2) {
