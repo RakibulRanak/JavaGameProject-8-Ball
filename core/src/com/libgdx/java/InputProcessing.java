@@ -27,8 +27,6 @@ public class InputProcessing implements InputProcessor {
         public boolean touchDown ( int screenX, int screenY, int pointer, int button){
 
             if (button == Input.Buttons.LEFT) {
-
-                   // hit = true;
                 if (Force > 0) {
                     //System.out.println(point1 +" "+point2);
                     if (Force > 180)
