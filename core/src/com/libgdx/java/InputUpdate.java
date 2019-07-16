@@ -3,14 +3,12 @@ package com.libgdx.java;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import static com.libgdx.java.utils.Constants.*;
-import static com.libgdx.java.utils.Constants.stick2;
 
 public class InputUpdate {
 
     public static void inputUpdate(float delta) {
-        int horizontalForce = 0;
+
         if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-            //System.out.println(Gdx.input.getX()+" "+(HEIGHT-1-Gdx.input.getY()));
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
             player.applyForceToCenter(0, -50, false);

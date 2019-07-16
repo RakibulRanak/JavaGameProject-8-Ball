@@ -47,9 +47,7 @@ public class  main extends ApplicationAdapter implements Screen{
 	public void render(float delta){
 		Gdx.gl.glClearColor(0,0,0,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
 		inputUpdate(Gdx.graphics.getDeltaTime());
-		//new InputProcessing();
 		time+=Gdx.graphics.getDeltaTime();
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -57,18 +55,14 @@ public class  main extends ApplicationAdapter implements Screen{
 		sprite2.draw(batch);
 		sprite1.draw(batch);
 		ballboximg.draw(batch);
-
 		spritePlayer1.draw(batch);
 		spritePlayer2.draw(batch);
-
-		if(player1) {
+		if(player1 ) {
 			spritePlayer1Arrow.draw(batch);
 		}
 		else {
-
 			spritePlayer2Arrow.draw(batch);
 		}
-
 		if(b1)
 			b1=check(ball1);
 		batch.draw(textureball1, ball1.getPosition().x*PPM-(textureball1.getWidth()/2), ball1.getPosition().y*PPM-(textureball1.getWidth()/2), textureball1.getWidth(), textureball1.getHeight());
@@ -89,15 +83,12 @@ public class  main extends ApplicationAdapter implements Screen{
 		batch.draw(textureball6, ball6.getPosition().x*PPM-(textureball6.getWidth()/2), ball6.getPosition().y*PPM-(textureball6.getWidth()/2), textureball6.getWidth(), textureball6.getHeight());
 		if(b7)
 			b7=check(ball7);
-
 		batch.draw(textureball7, ball7.getPosition().x*PPM-(textureball7.getWidth()/2), ball7.getPosition().y*PPM-(textureball7.getWidth()/2), textureball7.getWidth(), textureball7.getHeight());
 		if(b8)
 			b8=check(ball8);
-
 		batch.draw(textureball8, ball8.getPosition().x*PPM-(textureball8.getWidth()/2), ball8.getPosition().y*PPM-(textureball8.getWidth()/2), textureball8.getWidth(), textureball8.getHeight());
 		if(b9)
 			b9=check(ball9);
-
 		batch.draw(textureball9, ball9.getPosition().x*PPM-(textureball9.getWidth()/2), ball9.getPosition().y*PPM-(textureball9.getWidth()/2), textureball9.getWidth(), textureball9.getHeight());
 		if(b10)
 			b10=check(ball10);
@@ -107,18 +98,15 @@ public class  main extends ApplicationAdapter implements Screen{
 		batch.draw(textureball11, ball11.getPosition().x*PPM-(textureball11.getWidth()/2), ball11.getPosition().y*PPM-(textureball11.getWidth()/2), textureball11.getWidth(), textureball11.getHeight());
 		if(b12)
 			b12=check(ball12);
-
 		batch.draw(textureball12, ball12.getPosition().x*PPM-(textureball12.getWidth()/2), ball12.getPosition().y*PPM-(textureball12.getWidth()/2), textureball12.getWidth(), textureball12.getHeight());
 		if(b13)
 			b13=check(ball13);
 		batch.draw(textureball13, ball13.getPosition().x*PPM-(textureball13.getWidth()/2), ball13.getPosition().y*PPM-(textureball13.getWidth()/2), textureball13.getWidth(), textureball13.getHeight());
 		if(b14)
 			b14=check(ball14);
-
 		batch.draw(textureball14, ball14.getPosition().x*PPM-(textureball14.getWidth()/2), ball14.getPosition().y*PPM-(textureball14.getWidth()/2), textureball14.getWidth(), textureball14.getHeight());
 		if(b15)
 			b15=check(ball15);
-
 		batch.draw(textureball15, ball15.getPosition().x*PPM-(textureball15.getWidth()/2), ball15.getPosition().y*PPM-(textureball15.getWidth()/2), textureball15.getWidth(), textureball15.getHeight());
 		if(b0)
 		{
@@ -126,20 +114,19 @@ public class  main extends ApplicationAdapter implements Screen{
 			if(!a) {
 				player.setLinearVelocity(0, 0);
 				player.setTransform(450/ PPM, 422 / PPM, 0);
+
 			}
 
 		}
 		batch.draw(striker, player.getPosition().x*PPM-(striker.getWidth()/2), player.getPosition().y*PPM-(striker.getWidth()/2), striker.getWidth(), striker.getHeight());
-		//System.out.println(time);
-		if((player1hit||player2hit) &&time>2)
+		if((player1hit||player2hit) &&time>2 )
 		{
 			balllstop=stop();
-			if(balllstop)
+			if(balllstop )
 			{
 				stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 				stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 			}
-			//System.out.println(balllstop);
 		}
 		if(player1 && player1hit && balllstop && solid==0 )
 		{
@@ -182,9 +169,9 @@ public class  main extends ApplicationAdapter implements Screen{
 		}
 		if(balllstop||time<0.2) {
 
-			if(player1)
+			if(player1 &&cuegorte==0)
 				stick1.draw(batch);
-			else
+			else if(player2 && cuegorte==0)
 				stick2.draw(batch);
 		}
 		batch.draw(ballbox,530,0);
@@ -197,18 +184,25 @@ public class  main extends ApplicationAdapter implements Screen{
 		if(balllstop) {
 			solid = 0;
 			stripe = 0;
-			cue = 0;
 			eight = 0;
+			cue=0;
 		}
-
 
 		if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE))
 		{
+			SOLID=7;
+			STRIPE=7;
+			player1=true;
+			player2=false;
+			point1=0;
+			point2=0;
+			cuegorte=0;
+			//Force=0;
+			disB=20;
 			((Menu) Gdx.app.getApplicationListener()).setScreen(new MenuScreen());
 		}
 
 	}
-
 
 
 	@Override
@@ -223,7 +217,7 @@ public class  main extends ApplicationAdapter implements Screen{
 	@Override
 	public void dispose() {
 
-		Dispose.disposeing();
+		//Dispose.disposeing();
 	}
 
 }

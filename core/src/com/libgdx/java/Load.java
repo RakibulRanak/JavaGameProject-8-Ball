@@ -15,8 +15,10 @@ import static com.libgdx.java.utils.Constants.*;
 
      public static void loadResource() {
 
+
+         background = new Texture("images/parquet.jpg");
+         board = new Texture("images/poolTable.png");
          striker = new Texture("images/ball0.png");
-         //System.out.println(striker.getWidth());
          textureball1 = new Texture("images/ball1.png");
          textureball2 = new Texture("images/ball2.png");
          textureball3 = new Texture("images/ball3.png");
@@ -36,8 +38,7 @@ import static com.libgdx.java.utils.Constants.*;
          insidetray = new Texture("images/InsideTray.png");
          cue1 = new Texture("images/cuePurple.png");
          cue2 = new Texture("images/cueGreen.png");
-         background = new Texture("images/parquet.jpg");
-         board = new Texture("images/poolTable.png");
+
 
          spritePlayer1Arrow = new Sprite(new Texture("images/arrowLeft.png"));
          spritePlayer1Arrow.setPosition(720,750);
@@ -90,7 +91,7 @@ import static com.libgdx.java.utils.Constants.*;
 
          // creating ball
 
-         player = createBall(450,422,14,false,0);
+         player = createBall(588,422,14,false,0);
          ball1 = createBall(850,422,14,false,1);
          ball2 = createBall(880,407,14,false,2);
          ball3 = createBall(880,437,14,false,3);

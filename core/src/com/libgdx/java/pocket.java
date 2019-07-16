@@ -57,6 +57,9 @@ public class pocket {
                     player2=false;
                     point1=0;
                     point2=0;
+                    cuegorte=0;
+                    //Force=0;
+                    disB=20;
                     ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                     //Game Ends Here
                 }
@@ -70,7 +73,10 @@ public class pocket {
             }
             else
             {
-                cuepocket.play();
+                if(cuegorte==0)
+                   cuepocket.play();
+                cue=1;
+                cuegorte=1;
             }
 
             return false;
