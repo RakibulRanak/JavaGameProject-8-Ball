@@ -13,7 +13,7 @@ public class DesktopLauncher {
 		config.backgroundFPS=60;
 		config.foregroundFPS=60;
 
-		//config.resizable=false;
+		config.resizable=false;
 		//config.fullscreen=true;
 
 		LwjglApplication lw = new LwjglApplication(new Menu(), config);
