@@ -12,7 +12,7 @@ import static com.libgdx.java.movement.stop;
 import static com.libgdx.java.pocket.*;
 import static com.libgdx.java.utils.Constants.*;
 
-public class main extends ApplicationAdapter implements Screen{
+public class  main extends ApplicationAdapter implements Screen{
 
 	private OrthographicCamera camera;
 	boolean b0=true,b1=true,b2=true,b3=true,b4=true,b5=true,b6=true,b7=true,b8=true,b9=true,b10=true,b11=true,
