@@ -32,7 +32,7 @@ public class Help implements Screen {
     }
     @Override
     public void show() {
-        help = new Sprite(new Texture("images/help.jpg"));
+        help = new Sprite(new Texture("images/Help.png"));
         help.setSize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 
         stage = new Stage();

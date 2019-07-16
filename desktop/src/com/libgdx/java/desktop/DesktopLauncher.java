@@ -16,7 +16,7 @@ public class DesktopLauncher {
 		//config.resizable=false;
 		//config.fullscreen=true;
 
-		new LwjglApplication(new Menu(), config);
+		LwjglApplication lw = new LwjglApplication(new Menu(), config);
 
 	}
 }

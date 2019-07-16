@@ -18,7 +18,7 @@ public class InputUpdate {
             player.applyForceToCenter(50, 0, false);
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
             player.applyForceToCenter(0, 50, false);
-        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)) {
+        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)&&cuegorte==0) {
             power=5;
             Force+=3;
             int x1,y1;
