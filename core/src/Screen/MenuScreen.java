@@ -1,7 +1,6 @@
 package Screen;
 
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -16,21 +15,23 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.libgdx.java.PlayGame;
 import com.libgdx.java.main;
 
+
 public class MenuScreen  implements Screen {
+
+    public static Stage stage;
+    public static TextureAtlas textureAtlas;
+    public static Skin skin;
+    public static Table tablePlay,tableHelp, tableheading,tableAbout, tableExit;
+    public static TextButton buttonPlay, buttonExit, buttonHelp, buttonAbout, buttonBack;
+    public static BitmapFont fontWhite;
+    public static Label heading;
 
     public SpriteBatch batch;
     private Sprite menuimage;
 
-    private Stage stage;
-    private TextureAtlas textureAtlas;
-    private Skin skin;
-    private Table tablePlay,tableHelp, tableheading,tableAbout, tableExit;
-    private TextButton buttonPlay, buttonExit, buttonHelp, buttonAbout, buttonBack;
-    private BitmapFont fontWhite;
-    private Label heading;
+
 
 
     TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();

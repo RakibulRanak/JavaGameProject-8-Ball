@@ -15,29 +15,45 @@ import static com.libgdx.java.utils.Constants.*;
 
      public static void loadResource() {
 
-         striker = new Texture("ball0.png");
+         striker = new Texture("images/ball0.png");
          //System.out.println(striker.getWidth());
-         textureball1 = new Texture("ball1.png");
-         textureball2 = new Texture("ball2.png");
-         textureball3 = new Texture("ball3.png");
-         textureball4 = new Texture("ball4.png");
-         textureball5 = new Texture("ball5.png");
-         textureball6 = new Texture("ball6.png");
-         textureball7 = new Texture("ball7.png");
-         textureball8 = new Texture("ball8.png");
-         textureball9 = new Texture("ball9.png");
-         textureball10 = new Texture("ball10.png");
-         textureball11 = new Texture("ball11.png");
-         textureball12 = new Texture("ball12.png");
-         textureball13 = new Texture("ball13.png");
-         textureball14 = new Texture("ball14.png");
-         textureball15 = new Texture("ball15.png");
-         ballbox = new Texture("Ballbox.png");
-         insidetray = new Texture("InsideTray.png");
-         cue1 = new Texture("cuePurple.png");
-         cue2 = new Texture("cueGreen.png");
-         background = new Texture("parquet.jpg");
-         board = new Texture("poolTable.png");
+         textureball1 = new Texture("images/ball1.png");
+         textureball2 = new Texture("images/ball2.png");
+         textureball3 = new Texture("images/ball3.png");
+         textureball4 = new Texture("images/ball4.png");
+         textureball5 = new Texture("images/ball5.png");
+         textureball6 = new Texture("images/ball6.png");
+         textureball7 = new Texture("images/ball7.png");
+         textureball8 = new Texture("images/ball8.png");
+         textureball9 = new Texture("images/ball9.png");
+         textureball10 = new Texture("images/ball10.png");
+         textureball11 = new Texture("images/ball11.png");
+         textureball12 = new Texture("images/ball12.png");
+         textureball13 = new Texture("images/ball13.png");
+         textureball14 = new Texture("images/ball14.png");
+         textureball15 = new Texture("images/ball15.png");
+         ballbox = new Texture("images/Ballbox.png");
+         insidetray = new Texture("images/InsideTray.png");
+         cue1 = new Texture("images/cuePurple.png");
+         cue2 = new Texture("images/cueGreen.png");
+         background = new Texture("images/parquet.jpg");
+         board = new Texture("images/poolTable.png");
+
+         spritePlayer1Arrow = new Sprite(new Texture("images/arrowLeft.png"));
+         spritePlayer1Arrow.setPosition(720,750);
+         spritePlayer1Arrow.setSize(spritePlayer1Arrow.getWidth()*2,spritePlayer1Arrow.getHeight()*2);
+
+         spritePlayer2Arrow = new Sprite(new Texture("images/arrowRight.png"));
+         spritePlayer2Arrow.setPosition(720,750);
+         spritePlayer2Arrow.setSize(spritePlayer2Arrow.getWidth()*2,spritePlayer2Arrow.getHeight()*2);
+
+         spritePlayer1 = new Sprite(new Texture("images/mode1.png"));
+         spritePlayer1.setPosition(550,750);
+         spritePlayer1.setSize(spritePlayer1.getWidth()*4,spritePlayer1.getHeight()*4);
+
+         spritePlayer2 = new Sprite(new Texture("images/mode2.png"));
+         spritePlayer2.setPosition(900,750);
+         spritePlayer2.setSize(spritePlayer2.getWidth()*4,spritePlayer2.getHeight()*4);
 
 
 

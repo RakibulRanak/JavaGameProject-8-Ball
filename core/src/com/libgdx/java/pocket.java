@@ -1,8 +1,12 @@
+
+
 package com.libgdx.java;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.physics.box2d.*;
-import static com.libgdx.java.utils.Constants.*;
+        import Screen.Menu;
+        import Screen.Win;
+        import com.badlogic.gdx.Gdx;
+        import com.badlogic.gdx.audio.Sound;
+        import com.badlogic.gdx.physics.box2d.*;
+        import static com.libgdx.java.utils.Constants.*;
 
 public class pocket {
 
@@ -28,12 +32,16 @@ public class pocket {
                             System.out.println("Player2 Wins");
                         else
                             System.out.println("Player1 Wins");
+
+                        ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                     }
                     if (player2) {
                         if (STRIPE > 0)
                             System.out.println("Player1 Wins");
                         else
                             System.out.println("Player2 Wins");
+
+                        ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                     }
                     //Game Ends Here
                 }
@@ -55,4 +63,3 @@ public class pocket {
             return true;
     }
 }
-
