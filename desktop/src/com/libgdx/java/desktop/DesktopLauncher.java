@@ -12,6 +12,10 @@ public class DesktopLauncher {
 		config.height=HEIGHT;
 		config.backgroundFPS=60;
 		config.foregroundFPS=60;
+
+		//config.resizable=false;
+		//config.fullscreen=true;
+
 		new LwjglApplication(new Menu(), config);
 
 	}

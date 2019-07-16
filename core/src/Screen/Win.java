@@ -9,9 +9,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-
 import static Screen.MenuScreen.*;
-import static com.libgdx.java.utils.Constants.checkWin;
+import com.libgdx.java.utils.Constants.*;
+
 
 public class Win implements Screen {
     private Stage stageNow;
@@ -46,7 +46,7 @@ public class Win implements Screen {
         Gdx.gl.glClearColor(0,0,0,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        if(checkWin==1)
+        if(checkWin ==1)
             player1Won.draw(batch);
         else
             player2Won.draw(batch);
