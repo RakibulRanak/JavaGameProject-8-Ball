@@ -91,7 +91,7 @@ public class MenuScreen  implements Screen {
         Label.LabelStyle labelStyle = new Label.LabelStyle(fontWhite,Color.WHITE);
         heading = new Label("8 Ball Pool",labelStyle);
         heading.setFontScale(3);
-
+        
 
         // buttons are added to table
 
