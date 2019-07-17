@@ -8,16 +8,7 @@ public class InputUpdate {
 
     public static void inputUpdate(float delta) {
 
-        if (Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-        }
-        if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN))
-            player.applyForceToCenter(0, -50, false);
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            player.applyForceToCenter(-50, 0, false);
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            player.applyForceToCenter(50, 0, false);
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
-            player.applyForceToCenter(0, 50, false);
+
         if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)&&cuegorte==0) {
             power=5;
             Force+=3;

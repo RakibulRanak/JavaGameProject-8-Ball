@@ -33,13 +33,14 @@ public class pocket {
                         if (SOLID > 0) {
                             System.out.println("Player2 Wins");
                             checkWin=2;
+
                         }
                         else {
                             System.out.println("Player1 Wins");
                             checkWin=1;
+
                         }
 
-                       // ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                     }
                     else if (player2) {
                         if (STRIPE > 0) {
@@ -58,8 +59,8 @@ public class pocket {
                     point1=0;
                     point2=0;
                     cuegorte=0;
-                    //Force=0;
                     disB=20;
+                    winsound.play();
                     ((Menu) Gdx.app.getApplicationListener()).setScreen(new Win(batch));
                     //Game Ends Here
                 }

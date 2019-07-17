@@ -30,6 +30,7 @@ public class Dispose {
         ballinpocket.dispose();
         ballroll.dispose();
         cuepocket.dispose();
+        winsound.dispose();
 
     }
 }

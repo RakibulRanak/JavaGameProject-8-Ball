@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
-import com.libgdx.java.utils.Dispose;
 
 import Screen.*;
 
@@ -46,6 +45,7 @@ public class  main extends ApplicationAdapter implements Screen{
 	@Override
 	public void render(float delta){
 		Gdx.gl.glClearColor(0,0,0,1);
+		//System.out.println(point1+" "+point2);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		inputUpdate(Gdx.graphics.getDeltaTime());
 		time+=Gdx.graphics.getDeltaTime();
@@ -123,7 +123,7 @@ public class  main extends ApplicationAdapter implements Screen{
 		{
 			balllstop=stop();
 			if(balllstop )
-			{
+			{	Force=0;
 				stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 				stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 			}

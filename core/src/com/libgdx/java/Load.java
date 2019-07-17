@@ -112,6 +112,7 @@ import static com.libgdx.java.utils.Constants.*;
          ballinpocket=Gdx.audio.newSound(Gdx.files.internal("sounds/sfx_ball_in_pocket.wav"));
          ballroll=Gdx.audio.newSound(Gdx.files.internal("sounds/ball_roll.wav"));
          cuepocket=Gdx.audio.newSound(Gdx.files.internal("sounds/cuepocket.wav"));
+         winsound=Gdx.audio.newSound(Gdx.files.internal("sounds/win.wav"));
 
          stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
          stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);

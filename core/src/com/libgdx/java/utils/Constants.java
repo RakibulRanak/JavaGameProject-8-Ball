@@ -40,7 +40,7 @@ public final class Constants {
     public static int Force=0;
     public static double angle;
     public static float posx,posy,disA,disB=20,power,mousex,mousey,time=0;
-    public static Sound ballinpocket,ballroll,cuepocket;
+    public static Sound ballinpocket,ballroll,cuepocket,winsound;
 
 
 

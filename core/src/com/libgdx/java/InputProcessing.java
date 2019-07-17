@@ -27,7 +27,6 @@ public class InputProcessing implements InputProcessor {
         public boolean touchDown ( int screenX, int screenY, int pointer, int button){
             if(button==Input.Buttons.LEFT && cuegorte==1)
             {
-                //cue=0;
                 cuegorte=0;
                 stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
                 stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
@@ -67,7 +66,6 @@ public class InputProcessing implements InputProcessor {
 
                     if (player1) {
                         stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
-                        //stick2.setPosition(-500,-500);
                         stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
 
                         player1hit = true;
@@ -75,7 +73,6 @@ public class InputProcessing implements InputProcessor {
                         balllstop = false;
                         time = 0;
                     } else {
-                        //stick1.setPosition(-500,-500);
                         stick1.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
                         stick2.setPosition(player.getPosition().x * PPM, player.getPosition().y * PPM);
                         player2hit = true;
