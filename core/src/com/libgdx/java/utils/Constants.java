@@ -26,9 +26,9 @@ public final class Constants {
     public static int point1=0,point2=0,SOLID=7,STRIPE=7;
     public static Texture background, board, striker, textureball1, textureball2, textureball3, textureball4, textureball5, textureball6,
             textureball7, table, textureball8, textureball9, textureball10, textureball11, textureball12,insidetray,
-            textureball13, textureball14, textureball15,ballbox,cue1,cue2;
+            textureball13, textureball14, textureball15,ballbox,cue1,cue2,f0,f30,f60,f90,f120,f150,f180;
 
-    public static Sprite sprite1, sprite2,stick1,stick2,ballboximg, spritePlayer1, spritePlayer2, spritePlayer1Arrow, spritePlayer2Arrow;
+    public static Sprite sprite1, sprite2,stick1,stick2,ballboximg, spritePlayer1, spritePlayer2, spritePlayer1Arrow, spritePlayer2Arrow,F0,F30,F60,F90,F120,F150,F180;
     public static World world;
 
     public static Box2DDebugRenderer b2dr;

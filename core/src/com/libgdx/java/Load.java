@@ -39,6 +39,14 @@ import static com.libgdx.java.utils.Constants.*;
          cue1 = new Texture("images/cuePurple.png");
          cue2 = new Texture("images/cueGreen.png");
 
+         f0= new Texture("images/0.png");
+         f30= new Texture("images/30.jpg");
+         f60= new Texture("images/60.jpg");
+         f90= new Texture("images/90.jpg");
+         f120= new Texture("images/120.jpg");
+         f150= new Texture("images/150.jpg");
+         f180= new Texture("images/180.jpg");
+
 
          spritePlayer1Arrow = new Sprite(new Texture("images/arrowLeft.png"));
          spritePlayer1Arrow.setPosition(720,750);
@@ -56,6 +64,29 @@ import static com.libgdx.java.utils.Constants.*;
          spritePlayer2.setPosition(900,750);
          spritePlayer2.setSize(spritePlayer2.getWidth()*4,spritePlayer2.getHeight()*4);
 
+         F0= new Sprite(f0);
+         F30= new Sprite(f30);
+         F60= new Sprite(f60);
+         F90= new Sprite(f90);
+         F120= new Sprite(f120);
+         F150= new Sprite(f150);
+         F180= new Sprite(f180);
+
+         F0.setSize(340,50);
+         F0.setPosition(610,670);
+
+        F30.setSize(340,50);
+        F30.setPosition(610,670);
+         F60.setSize(340,50);
+         F60.setPosition(610,670);
+         F90.setSize(340,50);
+         F90.setPosition(610,670);
+         F120.setSize(340,50);
+         F120.setPosition(610,670);
+         F150.setSize(340,50);
+         F150.setPosition(610,670);
+         F180.setSize(340,50);
+         F180.setPosition(610,670);
 
 
          // loading sprite

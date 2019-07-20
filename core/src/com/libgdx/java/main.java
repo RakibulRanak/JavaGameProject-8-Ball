@@ -167,6 +167,21 @@ public class  main extends ApplicationAdapter implements Screen{
 				player1=true;
 			}
 		}
+		if(Force==0)
+		   F0.draw(batch);
+		else if(Force<=30)
+		   F30.draw(batch);
+		else if(Force<=60)
+			F60.draw(batch);
+		else if(Force<=90)
+			F90.draw(batch);
+		else if(Force<=120)
+			F120.draw(batch);
+		else if(Force<=150)
+			F150.draw(batch);
+		else if(Force<=18000)
+			F180.draw(batch);
+
 		if(balllstop||time<0.2) {
 
 			if(player1 &&cuegorte==0)
@@ -175,6 +190,7 @@ public class  main extends ApplicationAdapter implements Screen{
 				stick2.draw(batch);
 		}
 		batch.draw(ballbox,530,0);
+
 
 		batch.end();
 		//b2dr.render(world, camera.combined);

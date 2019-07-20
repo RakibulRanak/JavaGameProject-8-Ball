@@ -9,7 +9,7 @@ public class InputUpdate {
     public static void inputUpdate(float delta) {
 
 
-        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)&&cuegorte==0) {
+        if (Gdx.input.isButtonPressed(Input.Buttons.RIGHT)&&cuegorte==0 &&Force <180) {
             power=5;
             Force+=3;
             int x1,y1;
