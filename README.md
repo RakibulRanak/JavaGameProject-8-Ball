@@ -5,3 +5,4 @@ collected through internet. Hope you play and enjoy.
 
 Recommended resolution is 1540X845
 
+(sudo /usr/lib/jvm/java-8-openjdk/bin/java -jar Ballfinal.jar)
